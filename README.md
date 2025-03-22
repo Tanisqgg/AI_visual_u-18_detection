@@ -48,7 +48,8 @@ Edit
 pip install torch torchvision opencv-python facenet-pytorch transformers pytube huggingface_hub numpy pillow
 pip freeze > requirements.txt
 ```
-🎯 Usage
+---
+## 🎯 Usage
 Analyze Local Video
 python
 Copy
@@ -61,7 +62,10 @@ Copy
 Edit
 video_url = "https://www.youtube.com/watch?v=VIDEO_ID"
 process_video(video_url, is_url=True)
-📁 Project Structure
+
+---
+
+## 📁 Project Structure
 plaintext
 Copy
 Edit
@@ -76,7 +80,10 @@ facial-age-estimation/
 ├── requirements.txt
 ├── README.md
 └── LICENSE.md
-🖼️ Example Outputs
+
+---
+
+## 🖼️ Example Outputs
 After running, you will obtain:
 
 Annotated Frames: Stored in annotated_frames/
@@ -91,7 +98,9 @@ Predicted age groups
 
 Age-based sentiment (Positive, Neutral, Negative)
 
-📚 Model Credits & References
+---
+
+## 📚 Model Credits & References
 Face Detection: MTCNN (facenet-pytorch)
 
 Age Estimation: Facial Age Detection (ViT) - Hugging Face
