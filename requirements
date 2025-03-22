@@ -1,0 +1,9 @@
+torch
+torchvision
+opencv-python
+facenet-pytorch
+transformers
+pytube
+huggingface_hub
+numpy
+pillow
