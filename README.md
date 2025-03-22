@@ -33,8 +33,8 @@ The program extracts frames at specific intervals, detects faces robustly using 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/age-detection.git
-cd age-detection
+git clone https://github.com/your-username/AI_visual_u-18_detection.git
+cd AI_visual_u-18_detection
 Install Dependencies
 bash
 Copy
@@ -47,6 +47,7 @@ Copy
 Edit
 pip install torch torchvision opencv-python facenet-pytorch transformers pytube huggingface_hub numpy pillow
 pip freeze > requirements.txt
+```
 🎯 Usage
 Analyze Local Video
 python
@@ -68,7 +69,7 @@ facial-age-estimation/
 ├── annotated_frames/
 │   └── (Annotated images saved here)
 ├── videos/
-│   └── (Downloaded YouTube videos)
+│   └── (Downloaded YouTube videos/local videos)
 ├── local_model/
 │   └── (Pre-trained Hugging Face model files)
 ├── age_estimator.py
