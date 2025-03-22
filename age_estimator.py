@@ -188,5 +188,5 @@ if __name__ == "__main__":
     process_video(video_source, is_url=False)
 
     # Option 2: Process a YouTube video by providing its URL.
-    # video_url = "https://www.youtube.com/watch?v=7WB2qpTV404"  # Replace VIDEO_ID with an actual YouTube video ID.
+    # video_url = "https://www.youtube.com/watch?v=7WB2qpTV404"  # Replace VIDEO_ID with an actual YouTube ID.
     # process_video(video_url, is_url=True)
