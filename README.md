@@ -50,13 +50,13 @@ pip freeze > requirements.txt
 ```
 ---
 ## 🎯 Usage
-Analyze Local Video
+- Analyze Local Video
 python
 Copy
 Edit
 video_source = r"C:\path\to\your\video.mp4"
 process_video(video_source, is_url=False)
-Analyze YouTube Video
+- Analyze YouTube Video
 python
 Copy
 Edit
