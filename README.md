@@ -65,42 +65,24 @@ process_video(video_url, is_url=True)
 
 ---
 
-## 📁 Project Structure
-plaintext
-Copy
-Edit
-facial-age-estimation/
-├── annotated_frames/
-│   └── (Annotated images saved here)
-├── videos/
-│   └── (Downloaded YouTube videos/local videos)
-├── local_model/
-│   └── (Pre-trained Hugging Face model files)
-├── age_estimator.py
-├── requirements.txt
-├── README.md
-└── LICENSE.md
-
----
-
 ## 🖼️ Example Outputs
 After running, you will obtain:
 
-Annotated Frames: Stored in annotated_frames/
+- Annotated Frames: Stored in annotated_frames/
 
-CSV Report (age_detection_report.csv) with detailed predictions:
+- CSV Report (age_detection_report.csv) with detailed predictions:
 
-Timestamps
+- Timestamps
 
-Face coordinates
+- Face coordinates
 
-Predicted age groups
+- Predicted age groups
 
-Age-based sentiment (Positive, Neutral, Negative)
+- Age-based sentiment (Positive, Neutral, Negative)
 
 ---
 
 ## 📚 Model Credits & References
-Face Detection: MTCNN (facenet-pytorch)
+- Face Detection: MTCNN (facenet-pytorch)
 
-Age Estimation: Facial Age Detection (ViT) - Hugging Face
+- Age Estimation: Facial Age Detection (ViT) - Hugging Face
