@@ -1,3 +1,5 @@
+# © 2025 Tanisq Jawahar. Licensed under CC BY-NC 4.0
+
 import cv2
 import random
 import csv
