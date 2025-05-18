@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results - Age Estimator</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/red11style.css') }}">
+    <!-- Chart.js CDN for rendering charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="background-color: #F6F9FE;">
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Processing Results</h1>
+        {% if report_exists %}
+        <div class="mb-3 text-center">
+            <a href="{{ url_for('download_report') }}" class="btn btn-success">Download CSV Report</a>
+        </div>
+        {% endif %}
+
+        <h3 class="text-center">Sentiment Distribution</h3>
+        <!-- Canvas element for the pie chart -->
+        <div class="d-flex justify-content-center mb-5">
+            <canvas id="sentimentChart" width="50" height="50"></canvas>
+        </div>
+
+        <h3 class="mt-5">Annotated Frames</h3>
+        <div class="row">
+            {% for frame in frames %}
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img src="{{ url_for('serve_frame', filename=frame) }}" class="card-img-top" alt="Annotated frame">
+                    <div class="card-body">
+                        <p class="card-text">{{ frame }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="mt-4 text-center">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Process Another Video</a>
+        </div>
+    </div>
+
+    <script>
+        // Get sentiment counts passed from Flask (they are numbers)
+        var positiveCount = {{ sentiment_counts['positive'] }};
+        var neutralCount = {{ sentiment_counts['neutral'] }};
+        var negativeCount = {{ sentiment_counts['negative'] }};
+
+        var ctx = document.getElementById('sentimentChart').getContext('2d');
+        var sentimentChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Positive', 'Neutral', 'Negative'],
+                datasets: [{
+                    data: [positiveCount, neutralCount, negativeCount],
+                    backgroundColor: ['#28a745', '#ffc107', '#dc3545']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            // You can add additional label options here if desired
+                            font: {
+                                size: 16  // Adjust this value if you need larger label text
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Sentiment Distribution',
+                        font: {
+                            size: 18  // Adjust this value to change the title text size
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Optional Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
