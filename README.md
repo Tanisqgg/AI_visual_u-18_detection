@@ -81,6 +81,20 @@ After running, you will obtain:
 
 - Age-based sentiment (Positive, Neutral, Negative)
 
+## 📈 Model Evaluation
+
+To gauge how well the age prediction network performs on the included
+`wiki_crop` dataset, first download the model using
+`age_est_model_download_local.py`. Afterwards run:
+
+```bash
+python evaluate_age_model.py
+```
+
+The script iterates over the dataset and prints metrics such as **MAE**,
+**RMSE**, **Cumulative Scores** (±1/±3/±5 years), the error **standard deviation**
+and the **R² score**.
+
 ---
 
 ## 📚 Model Credits & References
