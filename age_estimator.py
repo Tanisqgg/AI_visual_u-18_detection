@@ -186,7 +186,7 @@ if __name__ == "__main__":
     # Option 1: Process a local video file.
     # video_source = "your_local_video_file.mp4"
     # process_video(video_source, is_url=False)
-    video_source = r"C:\Users\tanis\Videos\Captures\I am Lignite_ Kids of Lignite - Beulah Middle School - YouTube - Google Chrome 2025-03-20 17-49-36.mp4"
+    video_source = r"C:\Users\tanis\Videos\2025-04-11 00-49-33.mp4"
     process_video(video_source, is_url=False)
 
     # Option 2: Process a YouTube video by providing its URL.
