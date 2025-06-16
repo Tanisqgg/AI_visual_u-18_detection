@@ -16,6 +16,9 @@ from PIL import Image
 from transformers import pipeline
 import torch
 
+# The evaluation pipeline requires RGB images. Some dataset files might be in
+# grayscale, so we convert them before inference when detected.
+
 DATA_DIR = Path("wiki_crop/wiki_crop")
 MODEL_DIR = Path("local_model")
 
@@ -58,7 +61,12 @@ def evaluate_dataset() -> dict[str, float]:
 
     for img_path in image_paths:
         gt_age = parse_age_from_filename(img_path)
-        prediction = predictor(Image.open(img_path))[0]["label"]
+        img = Image.open(img_path)
+        # Images in the dataset might be grayscale; convert to RGB for the
+        # predictor if needed.
+        if img.mode == "L":
+            img = img.convert("RGB")
+        prediction = predictor(img)[0]["label"]
         pred_age = parse_predicted_age(prediction)
         y_true.append(gt_age)
         y_pred.append(pred_age)
