@@ -10,6 +10,8 @@ from facenet_pytorch import MTCNN
 from transformers import pipeline
 from pytube import YouTube
 
+# The age estimation pipeline expects images in RGB format. Some frames may be
+# grayscale, so we convert them before inference when needed.
 # setting device for torch computations
 device = 0 if torch.cuda.is_available() else -1
 
@@ -82,6 +84,10 @@ def predict_age(face_img):
     """
     face_rgb = cv2.cvtColor(face_img, cv2.COLOR_BGR2RGB)
     pil_img = Image.fromarray(face_rgb)
+    # Some frames may be stored in grayscale. The pipeline expects RGB
+    # input, so convert if needed.
+    if pil_img.mode == "L":
+        pil_img = pil_img.convert("RGB")
 
     # get predictions from the pipeline
     predictions = age_pipe(pil_img)
